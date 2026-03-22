@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aroma WebAR</title>
+
+  <!-- A-Frame -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+  <!-- AR.js -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+  <!-- Gesture (Rotate + Zoom) -->
+  <script src="https://cdn.jsdelivr.net/gh/fcor/arjs-gestures/dist/gestures.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+
+  <a-scene embedded arjs>
+
+    <!-- Preload Model -->
+    <a-assets>
+      <a-asset-item id="model" src="model.glb"></a-asset-item>
+    </a-assets>
+
+    <!-- Marker -->
+    <a-marker preset="hiro">
+
+      <!-- 3D Model -->
+      <a-entity 
+        gltf-model="#model"
+        scale="0.5 0.5 0.5"
+        rotation="0 0 0"
+        gesture-handler>
+      </a-entity>
+
+    </a-marker>
+
+    <!-- Camera -->
+    <a-entity camera></a-entity>
+
+  </a-scene>
+
+  <!-- UI Overlay -->
+  <div style="
+    position:absolute;
+    bottom:20px;
+    width:100%;
+    text-align:center;
+    color:white;
+    font-family:sans-serif;
+  ">
+    <h2>Burger 🍔</h2>
+    <p>₹199</p>
+    <p>Delicious cheese burger</p>
+  </div>
+
+</body>
+</html>
